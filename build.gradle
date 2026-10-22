@@ -1,0 +1,27 @@
+plugins {
+    id 'fabric-loom' version '1.6-SNAPSHOT'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'Fabric'
+        url = 'https://maven.fabricmc.net/'
+    }
+}
+
+extra {
+    apply plugin: 'fabric-loom'
+    minecraft {
+        version = project.property('minecraft_version')
+        runs {
+            client {
+                main = 'com.example.ExampleModClient'
+            }
+        }
+    }
+    loaderVersion = project.property('loader_version')
+    modVersion = project.property('mod_version')
+    mavenGroup = project.property('maven_group')
+    archivesBaseName = project.property('archives_base_name')
+}
